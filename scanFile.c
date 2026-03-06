@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+extern int sum_array(int* arr, int size); 
+extern unsigned int sum; 
+
+
+int main(){
+    int docSize = 50;
+    int docArr[docSize]; 
+    char line[256]; 
+    int index = 0;
+
+    FILE *scan = fopen("data.txt", "r");
+
+    for (int i = 0; i < docSize; i++) {
+        fscanf(scan, "%d", &docArr[i]); 
+    }
+
+    int total = sum_array(docArr, docSize); 
+    printf("total sum = %d\n", total);
+
+    fclose(scan);
+    return 0;
+}
